@@ -1,0 +1,30 @@
+<app-count-empregados [todos]="getEmpregados()" [masculino]="getMasculinos()" 
+[femenino]="getFemeninos()" (radioButton)="generoSelect($event)">
+
+</app-count-empregados>
+<div class="card" style="margin-top:10px">
+  <div class="card-body">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>Arquivo</th>
+          <th>Nome</th>
+          <th>Apelido</th>
+          <th>Gênero</th>
+          <th>Salário</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let empregado of listaEmpregados">
+            <tr *ngIf="generoSelec === 'Todos' || empregado.genero === generoSelec">
+              <td>{{empregado.arquivo}}</td>
+              <td>{{empregado.nome}}</td>
+              <td>{{empregado.apelido}}</td>
+              <td>{{empregado.genero}}</td>
+              <td>{{empregado.salario}}</td>
+            </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
